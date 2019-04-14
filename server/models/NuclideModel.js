@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 
-const nuclide = new mongoose.Schema({
-  nuclideID: String,
-  name: String,
+const nuclides = new mongoose.Schema({
+  nuclideID: {type:String,required:true},
+  name: {type:String,require:true},
   atomicMass: String,
   naturalFraction: String,
   decayConstant: String,
@@ -16,10 +16,9 @@ const nuclide = new mongoose.Schema({
   XSNeutronProton: Object,
   XSNeutron2Neutron:Object,
   XSNeutron3Neutron:Object,
-  XSNeutronFission:Object,
-
+  XSNeutronFission:Object
 });
 
-const Order = mongoose.model('Order', orderSchema);
+const nuclide = mongoose.model('Nuclide', nuclides);
 
-module.exports = Order;
+module.exports = nuclide;
