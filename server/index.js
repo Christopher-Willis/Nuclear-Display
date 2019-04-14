@@ -4,6 +4,7 @@ require('dotenv').config()
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const getRoutes = require("./routes/getRoutes")
 
 const app = express();
 
@@ -11,10 +12,16 @@ const startWebServer = () => {
 
   // app.use(express.static('public'))
   app.use(bodyParser.json());
+  // app.use(getRoutes)
+  app.get('/', function(req, res) {
+    res.send('im the home page!');  
+  });
+
+  app.use(getRoutes)
 
   const port = process.env.DB_PORT || 3001;
-    app.listen(port, () => {
-      console.log(`Listening on port:${port}`);
+  app.listen(port, () => {
+    console.log(`Listening on port:${port}`);
   });
 }
 
@@ -22,7 +29,6 @@ const path = `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@ds115154.m
 mongoose.connect(path, {useNewUrlParser: true}).then(
   () => { 
     console.log("mongoose connected successfully");
-   
     startWebServer();
   },
   err => {
