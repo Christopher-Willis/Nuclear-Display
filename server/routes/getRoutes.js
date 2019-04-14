@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const {listIsotope, listAllIsotopes} = require("../controllers/getController");
+const {listIsotope, list} = require("../controllers/getController");
 
-router.get("/isotope/:proton/:mass", listIsotope);
-router.get("/isotope", listIsotope);
+router.get("/isotope/:proton/:mass/:metastable", listIsotope);
+router.get("/isotope", list);
 
 
 module.exports = router;

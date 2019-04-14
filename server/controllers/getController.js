@@ -5,22 +5,29 @@
 //   return response.send("All")
 // }
 
+const Nuclide = require("../models/NuclideModel");
+
 
 
 const nuclide = require("../models/NuclideModel");
 
 exports.list = function list(request, response) {  
-  Message.find(function (err, messages) {
+  Nuclide.find(function (err, messages) {
     if (err) return console.error(err) 
     return response.json(messages)
   })
 }
 
-exports.listIsotope = function listIsotope(request, response) {  
-  if(request.params.proton && request.params.mass){
-    return response.json(request.params)
-  }
-  return response.send("All")
+exports.listIsotope = function listIsotope(request, response) { 
+  let searchPath = `${request.params.proton}${request.params.mass.padStart(3, '0')}${request.params.metastable}`;  
+  // the strange naming convention requires some padding for zeros, its a 5 digit number for amounts less than 10 protons
+
+  console.log("Searching for " +searchPath)
+  Nuclide.findOne({"nuclideID":searchPath},function(err, resad){
+    if (err) return console.error(err) 
+    return response.json(resad)
+
+  })
 }
 
 
