@@ -1,11 +1,8 @@
 import { combineReducers } from 'redux'
 
-function nuclides(state=0, action){
-  if(action.type === "INCREASE_COUNTER"){
-    return state + 1
-  }
-  if(action.type === "DECREASE_COUNTER"){
-    return state - 1
+function nuclides(state=[], action){
+  if(action.type === "ADD_NUCLIDES"){
+    return [...state,action.value]
   }
   return state;
 }   
