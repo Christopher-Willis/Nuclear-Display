@@ -8,16 +8,25 @@ import './App.css';
 class App extends Component {
 
   componentDidMount(){
-  fetch(this.props.url)
+  fetch(this.props.urlIsotopes)
     .then((response) =>{
       return response.json();
     })
     .then((nuclideObject) =>{
-      // nuclideObject.forEach( nuclideElement=> {
-      // this.props.addNuclde(nuclideElement)
-      // })
       this.props.addNuclde(nuclideObject)
   });
+  // load all nuclear isotope data to redux
+
+  fetch(this.props.urlIsotopes)
+  .then((response) =>{
+    return response.json();
+  })
+  .then((nuclideObject) =>{
+    this.props.addElement(nuclideObject)
+  });
+
+  // loads all element data to redux
+
   }
   
 

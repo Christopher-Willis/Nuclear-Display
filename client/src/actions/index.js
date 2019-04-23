@@ -4,3 +4,10 @@ export function addNuclides(nuclides){
     value:nuclides
   }
 }
+
+export function addElements(elements){
+  return {
+    type:"ADD_ELEMENTS",
+    value:elements
+  }
+}

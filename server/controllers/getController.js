@@ -6,12 +6,12 @@
 // }
 
 const Nuclide = require("../models/NuclideModel");
+const Element = require("../models/ElementModel");
 
 
 
-const nuclide = require("../models/NuclideModel");
 
-exports.list = function list(request, response) {  
+exports.isotopes = function isotopes(request, response) {  
   Nuclide.find(function (err, messages) {
     if (err) return console.error(err) 
     return response.json(messages)
@@ -24,6 +24,26 @@ exports.listIsotope = function listIsotope(request, response) {
 
   console.log("Searching for " +searchPath)
   Nuclide.findOne({"nuclideID":searchPath},function(err, resad){
+    if (err) return console.error(err) 
+    return response.json(resad)
+
+  })
+}
+
+
+exports.elements = function elements(request, response) {  
+  Element.find(function (err, messages) {
+    if (err) return console.error(err) 
+    return response.json(messages)
+  })
+}
+
+exports.listElement = function listElement(request, response) { 
+  let searchPath = `${request.params.number}`;  
+  // the strange naming convention requires some padding for zeros, its a 5 digit number for amounts less than 10 protons
+
+  console.log("Searching for element " +searchPath)
+  Element.findOne({"number":searchPath},function(err, resad){
     if (err) return console.error(err) 
     return response.json(resad)
 
