@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 
 function nuclides(state=[], action){
   if(action.type === "ADD_NUCLIDES"){
-    return [...state,action.value]
+    return [...state,...action.value]
   }
   return state;
 }   
