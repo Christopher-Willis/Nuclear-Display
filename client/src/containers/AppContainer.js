@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {addNuclides,addElements} from "../actions"
 
 
+
 const mapDispatchToProps = {
   addNuclde:addNuclides,
   addElement:addElements
@@ -10,8 +11,8 @@ const mapDispatchToProps = {
 
 function mapStateToProps(state){
   return {
-    urlIsotopes:"http://localhost:3002/isotopes",
-    urlElements:"http://localhost:3002/elements",
+    urlIsotopes:`${process.env.REACT_APP_API_URL}/isotopes`,
+    urlElements:`${process.env.REACT_APP_API_URL}/elements`,
     allNuclides:state.nuclides,
     allElements:state.elements
   }
