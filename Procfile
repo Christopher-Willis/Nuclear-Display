@@ -1,2 +1,2 @@
-web: npm start
-client: cd client && npm install && npm start
+server: npm start
+web: cd client && npm install && npm start
