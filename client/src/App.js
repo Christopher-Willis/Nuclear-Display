@@ -17,12 +17,12 @@ class App extends Component {
   });
   // load all nuclear isotope data to redux
 
-  fetch(this.props.urlIsotopes)
+  fetch(this.props.urlElements)
   .then((response) =>{
     return response.json();
   })
-  .then((nuclideObject) =>{
-    this.props.addElement(nuclideObject)
+  .then((elementObject) =>{
+    this.props.addElement(elementObject)
   });
 
   // loads all element data to redux
@@ -32,11 +32,11 @@ class App extends Component {
 
   render() {
     let display ="";
-    if(this.props.allNuclides && this.props.allNuclides<1481){
-      display=<div>Loading: {this.props.allNuclides.length} of 1481</div>
+    if(this.props.allNuclides && this.props.allElements<100){
+      display=<div>Loading: {this.props.allElements.length} of 1481</div>
     }else if (this.props.allNuclides){
-      display=<div className="isotope-grid">{this.props.allNuclides.map((nuclide,index)=>{
-        return <div className="isotope-container"  key={index}><NuclideDisplay data={nuclide}/></div>
+      display=<div className="isotope-grid">{this.props.allElements.map((element,index)=>{
+        return <div className="isotope-container"  key={index}><NuclideDisplay data={element}/></div>
         })}
       </div>
     }

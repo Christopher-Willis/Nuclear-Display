@@ -10,11 +10,11 @@ function NuclideDisplay(props) {
       <CardHeader
         avatar={
           <Avatar aria-label="Isotope Abbreviation">
-            {props.data.name}
+            {props.data.symbol}
           </Avatar>
         }
-        title={props.data.nuclideID}
-        subheader={props.data.decayConstant}
+        title={props.data.name}
+        subheader={props.data.summary}
       />
     </Card>
     

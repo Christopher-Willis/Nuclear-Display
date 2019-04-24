@@ -7,9 +7,16 @@ function nuclides(state=[], action){
   return state;
 }   
 
+function elements(state=[], action){
+  if(action.type === "ADD_ELEMENTS"){
+    return [...state,...action.value]
+  }
+  return state;
+}   
+
 
 const reducers = combineReducers({
-  nuclides
+  nuclides,elements
 })
 
 export default reducers;
