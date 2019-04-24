@@ -5,6 +5,8 @@
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "d3": "^5.9.2",
+    "env-cmd": "^8.0.2",
+    "gh-pages": "^2.0.1",
     "react": "^16.8.6",
     "react-d3-library": "^1.1.8",
     "react-dom": "^16.8.6",
@@ -16,7 +18,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:production": "env-cmd .env.production npm run build",
+    "deploy": "npm run build:production && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -31,5 +35,7 @@
   "main": "index.js",
   "devDependencies": {},
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "homepage": "http://christopher-willis.github.io/Nuclear-Display"
+
 }
