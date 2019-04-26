@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NuclideDisplay from "./components/NuclideDisplay"
 import './App.css';
+import PeriodicTable from "./containers/PeriodicTableGridContainer"
 
 
   
@@ -45,9 +46,7 @@ class App extends Component {
         <header className="App-header">
           header
         </header>
-        <body className="inlineBlock">
-          {display}
-        </body>
+        <PeriodicTable/>
       </div>
     );
   }
