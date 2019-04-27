@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/Nuclear-Display/static/js/runtime~main.c5d6ecaf.js"
   },
   {
-    "revision": "9fe331bd7926cedf7fe7",
-    "url": "/Nuclear-Display/static/js/main.d9bd97f5.chunk.js"
+    "revision": "12083b18b796d0d6794f",
+    "url": "/Nuclear-Display/static/js/main.723b3636.chunk.js"
   },
   {
     "revision": "77c3f47b60db67d10c6a",
     "url": "/Nuclear-Display/static/js/2.8166f4d4.chunk.js"
   },
   {
-    "revision": "9fe331bd7926cedf7fe7",
+    "revision": "12083b18b796d0d6794f",
     "url": "/Nuclear-Display/static/css/main.46414c03.chunk.css"
   },
   {
-    "revision": "3c7e629291a8932e224160d1fa9354fd",
+    "revision": "2e86b66f502467666bc8b6810657c789",
     "url": "/Nuclear-Display/index.html"
   }
 ];
