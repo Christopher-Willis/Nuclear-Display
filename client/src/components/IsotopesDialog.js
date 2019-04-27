@@ -104,10 +104,7 @@ class SimpleModal extends React.Component {
       return elementName == element.symbol
     })
 
-    
-    
-    console.log(elementName);
-    
+        
     return (
       <div>
         <Modal
@@ -118,8 +115,8 @@ class SimpleModal extends React.Component {
         >
           <div style={getModalStyle()} className={classes.paper}>
             {filteredArray.map((isotope,index)=>{
-              return <div key={index} style={{backgroundColor: bgColors[colorMap[elementArrayFind.symbol]],display:"inline-block",width:"fit-content",margin:"5px",padding:"4px"}}>
-                <Fab onClick={()=>this.clickHandeler(isotope)}>{isotope.name}</Fab>
+              return <div key={index} style={{backgroundColor: bgColors[colorMap[elementArrayFind.category]],display:"inline-block",width:"fit-content",margin:"5px",padding:"4px"}}>
+                <Fab style={{backgroundColor: bgColors[colorMap[elementArrayFind.category]],filter: 'brightness(120%)',filter:'hue-rotate(15deg)'}} onClick={()=>this.clickHandeler(isotope)}>{isotope.name}</Fab>
               </div>
             })
             }
