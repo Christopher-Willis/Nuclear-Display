@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import NuclideDisplay from "./components/NuclideDisplay"
 import './App.css';
 import PeriodicTable from "./containers/PeriodicTableGridContainer"
+import TopMenu from "./containers/TopMenuContainer"
 
 
   
@@ -32,19 +32,10 @@ class App extends Component {
   
 
   render() {
-    let display ="";
-    if(this.props.allNuclides && this.props.allElements<100){
-      display=<div>Loading: {this.props.allElements.length} of 1481</div>
-    }else if (this.props.allNuclides){
-      display=<div className="isotope-grid">{this.props.allElements.map((element,index)=>{
-        return <div className="isotope-container"  key={index}><NuclideDisplay data={element}/></div>
-        })}
-      </div>
-    }
     return (
       <div className="App">
         <header className="App-header">
-          header
+          <TopMenu/>
         </header>
         <PeriodicTable/>
       </div>
