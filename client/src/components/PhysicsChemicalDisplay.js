@@ -16,7 +16,7 @@ class PhysChem extends React.Component {
       const findElement = this.props.allElements.find( (element) => {
         return element.symbol === this.props.selectedItem; 
       })
-      display=<ElementDisplay data={findElement}/>
+      display=(findElement ? <ElementDisplay data={findElement}/> : "")
     }else if (this.props.selectedItem && this.props.chemPhySelected===1){
 
 

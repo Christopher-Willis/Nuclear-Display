@@ -7,7 +7,7 @@ import {selectElementIsotope} from "../actions"
 
 function mapStateToProps(state){
   return {
-
+    allElements:state.elements,
   }
 }
 

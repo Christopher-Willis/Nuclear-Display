@@ -90,8 +90,24 @@ class SimpleModal extends React.Component {
 
       })
     }
-    
 
+
+    let elementName = ""
+    if (filteredArray.length>0){
+      elementName = filteredArray[0].name.replace(/[0-9]/g, '')
+      if(elementName[0]=='m'){
+        elementName=elementName.slice(1)
+      }
+    }
+
+    const elementArrayFind = this.props.allElements.find( (element)=> {
+      return elementName == element.symbol
+    })
+
+    
+    
+    console.log(elementName);
+    
     return (
       <div>
         <Modal
@@ -102,14 +118,12 @@ class SimpleModal extends React.Component {
         >
           <div style={getModalStyle()} className={classes.paper}>
             {filteredArray.map((isotope,index)=>{
-              return <div key={index} style={{backgroundColor: "#009A5A",display:"inline-block",width:"fit-content",margin:"5px",padding:"4px"}}>
+              return <div key={index} style={{backgroundColor: bgColors[colorMap[elementArrayFind.symbol]],display:"inline-block",width:"fit-content",margin:"5px",padding:"4px"}}>
                 <Fab onClick={()=>this.clickHandeler(isotope)}>{isotope.name}</Fab>
               </div>
             })
             }
-            {/* <div style={{backgroundColor: bgColors[colorMap[element.category]],display:"flex",alignItems:"center",justifyContent: "center"}} key={index} data-grid={{x: element.xpos-1, y: element.ypos-1, w: 1, h: 1, static: true}}>
-              <Fab onClick={() => this.clickHandeler(element.symbol)} style={{backgroundColor: bgColors[colorMap[element.category]],filter: 'brightness(120%)',filter:'hue-rotate(15deg)'}} size="small">{element.symbol}</Fab>
-            </div> */}
+
           </div>
         </Modal>
       </div>
