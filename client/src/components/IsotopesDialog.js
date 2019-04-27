@@ -114,6 +114,7 @@ class SimpleModal extends React.Component {
           onClose={this.props.close}
         >
           <div style={getModalStyle()} className={classes.paper}>
+            
             {filteredArray.map((isotope,index)=>{
               return <div key={index} style={{backgroundColor: bgColors[colorMap[elementArrayFind.category]],display:"inline-block",width:"fit-content",margin:"5px",padding:"4px"}}>
                 <Fab style={{backgroundColor: bgColors[colorMap[elementArrayFind.category]],filter: 'brightness(120%)',filter:'hue-rotate(15deg)'}} onClick={()=>this.clickHandeler(isotope)}>{isotope.name}</Fab>
